@@ -3,10 +3,9 @@ kind: Service
 metadata:
   name: zipkin
 spec:
+  type: LoadBalancer
   selector:
     app: zipkin
   ports:
     - port: 9411
       targetPort: 9411
-  type: ClusterIP
-
