@@ -52,9 +52,9 @@ jobs:
       run: |
         echo "Waiting for LoadBalancer IP..."
         for i in {1..20}; do
-          IP=$(kubectl get svc zipkin-service -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
+          IP=$(kubectl get svc zipkin -o jsonpath='{.status.loadBalancer.ingress[0].ip}')
           if [ -n "$IP" ]; then
-            echo "Frontend is available at: http://$IP"
+            echo "zipkin is available at: http://$IP"
             break
           else
             echo "Still waiting for IP..."
